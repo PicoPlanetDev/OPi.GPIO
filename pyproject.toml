@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "OPi.GPIO_PicoPlanetDev"
+version = "0.5.4"
+authors = [
+  { name="Sigmond Kukla", email="picoplanetdev@gmail.com" },
+]
+description = "Drop-in replacement for RPi.GPIO supporting Orange Pi and other SBCs"
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+]
+dependencies = [
+
+]
+
+[project.urls]
+"Homepage" = "https://github.com/PicoPlanetDev/OPi.GPIO"
+"Bug Tracker" = "https://github.com/PicoPlanetDev/OPi.GPIO/issues"

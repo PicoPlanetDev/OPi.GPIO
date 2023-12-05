@@ -11,9 +11,10 @@ See the [documentation](https://opi-gpio.readthedocs.io) for install instruction
 ## Installation
 
 In the virtual environment that you are using for your project, run:
-`pip install OPi.GPIO-PicoPlanetDev==0.5.4`
 
-OPi.GPIO is now accessible like so:
+`pip3 install OPi.GPIO-PicoPlanetDev==0.5.4`
+
+OPi.GPIO is now accessible like this:
 ```python
 import OPi.GPIO as GPIO
 import orangepi.zero3
@@ -22,7 +23,30 @@ GPIO.setmode(orangepi.zero3.BOARD)
 
 # setup inputs, outputs, event detection etc as per the documentation linked above
 ```
-# Changelog
+
+## Notes
+
+### Non-Root Access
+
+OPi.GPIO generally needs root access, but this might be inconvenient in some cases. The official documentation has
+[instructions](https://opi-gpio.readthedocs.io/en/latest/install.html#non-root-access) for non-root access, but this
+solution did not work correctly for me, so your mileage may vary here.
+
+Running a Python script with `sudo` does not work correctly when a virtual environment is activated. However,
+you can run `sudo venv/bin/python3 myscript.py` which will work correctly. This is my (probably not best-practices)
+solution for the time being. It does not, however, allow you to run it without root entirely.
+
+### Testing
+
+I have tested the following functionality to some degree with my Orange Pi Zero 3, but your mileage may vary:
+- Output
+- PWM (note that it is very limited and requires giving up UART pins)
+- Input
+  - Polling
+  - Event detection (including rising and falling edge)
+  - Debounce not tested yet
+
+## Changelog
 
 | Version   | Description                                                    | Date       |
 |-----------|----------------------------------------------------------------|------------|

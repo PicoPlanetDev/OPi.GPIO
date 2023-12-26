@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "OPi.GPIO-ex"
-version = "0.5.5"
+version = "1.0.0"
 authors = [
   { name="Zetaloop", email="zetaloop@outlook.com" },
 ]

@@ -14,6 +14,8 @@ See the [documentation](https://opi-gpio.readthedocs.io) for install instruction
 
 ## Installation
 
+You must have WiringPi (WiringOP etc.) installed in your system, and be able to use `gpio readall` command.
+
 In the virtual environment that you are using for your project, run:
 
 `pip3 install OPi.GPIO-ex`
@@ -48,7 +50,8 @@ Only tested with my Orange Pi Zero 2W and a e-Paper module (see [Waveshare_e-Pap
 
 | Version   | Description                                              | Date       |
 | --------- | -------------------------------------------------------- | ---------- |
-| **0.5.5** | Add OrangePi Zero 2W pin mappings                        | 2023/12/26 |
+| **1.0.0** | Use WiringPi `gpio readall` to get pin mapping instead   | 2023/12/26 |
+| **0.5.5** | Add OrangePi Zero 2W pin mappings                        | 2023/12/25 |
 | **0.5.4** | Add OrangePi Zero3 pin mappings                          | 2023/08/06 |
 | **0.5.3** | Add Radxa Zero pin mappings                              |            |
 |           | Add OrangePi Zero2 pin mappings                          | 2022/06/20 |

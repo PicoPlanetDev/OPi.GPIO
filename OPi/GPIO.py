@@ -371,11 +371,18 @@ _exports = {}
 def _check_configured(channel, direction=None):
     configured = _exports.get(channel)
     if configured is None:
-        raise RuntimeError("Channel {0} is not configured".format(channel))
+        # raise RuntimeError("Channel {0} is not configured".format(channel))
+        return False
 
     if direction is not None and direction != configured:
         descr = "input" if configured == IN else "output"
         raise RuntimeError("Channel {0} is configured for {1}".format(channel, descr))
+    
+    return True
+
+
+def gpio_function(channel):
+    return _exports.get(channel)
 
 
 def getmode():
@@ -465,8 +472,8 @@ def setup(channel, direction, initial=None, pull_up_down=None):
         for ch in channel:
             setup(ch, direction, initial)
     else:
-        if channel in _exports:
-            raise RuntimeError("Channel {0} is already configured".format(channel))
+        # if channel in _exports:
+            # raise RuntimeError("Channel {0} is already configured".format(channel))
         pin = get_gpio_pin(_mode, channel)
         try:
             sysfs.export(pin)
@@ -692,7 +699,8 @@ def cleanup(channel=None):
         for ch in channel:
             cleanup(ch)
     else:
-        _check_configured(channel)
+        if not _check_configured(channel):
+            return
         pin = get_gpio_pin(_mode, channel)
         event.cleanup(pin)
         sysfs.unexport(pin)

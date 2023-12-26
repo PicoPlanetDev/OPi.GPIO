@@ -1,10 +1,10 @@
-# OPi.GPIO
-
-**My attempt at maintaining OPi.GPIO for at least the Orange Pi Zero 2W pin map.**
+# OPi.GPIO EX
 
 ![](https://img.shields.io/pypi/pyversions/OPi.GPIO-ex.svg)
 ![](https://img.shields.io/pypi/v/OPi.GPIO-ex.svg)
 ![](https://img.shields.io/maintenance/yes/2024.svg)
+
+**An experimental fork that use `gpio readall` for mapping instead of map manually.**
 
 A drop-in replacement library for [RPi.GPIO](https://sourceforge.net/projects/raspberry-gpio-python) for the Orange Pi Zero and other SBCs.
 Only the basic GPIO functions are **replicated**, using sysfs: this allows the GPIO pins to be accessed from user space.
@@ -21,10 +21,9 @@ In the virtual environment that you are using for your project, run:
 OPi.GPIO is now accessible like this:
 ```python
 import OPi.GPIO as GPIO
-import orangepi.zero2w
 
-GPIO.setmode(orangepi.zero2w.BOARD)
-# or GPIO.setmode(orangepi.zero2w.BCM)
+GPIO.setmode(GPIO.BOARD)
+# or GPIO.setmode(GPIO.BCM)
 
 # setup inputs, outputs, event detection etc as per the documentation linked above
 ```

@@ -3,10 +3,10 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "OPi.GPIO_PicoPlanetDev"
-version = "0.5.4"
+name = "OPi.GPIO-ex"
+version = "0.5.5"
 authors = [
-  { name="Sigmond Kukla", email="picoplanetdev@gmail.com" },
+  { name="Zetaloop", email="zetaloop@outlook.com" },
 ]
 description = "Drop-in replacement for RPi.GPIO supporting Orange Pi and other SBCs"
 readme = "README.md"
@@ -21,5 +21,9 @@ dependencies = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/PicoPlanetDev/OPi.GPIO"
-"Bug Tracker" = "https://github.com/PicoPlanetDev/OPi.GPIO/issues"
+"Homepage" = "https://github.com/zetaloop/OPi.GPIO"
+"Bug Tracker" = "https://github.com/zetaloop/OPi.GPIO/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["nanopi", "OPi", "orangepi", "radxa", "rockpi"]
+includes = ["LICENSE", "README.md", "VERSION.txt"]
